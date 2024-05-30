@@ -14,7 +14,7 @@ public class C03_Priority {
 
     @BeforeMethod
     public void setUp() {
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
@@ -23,14 +23,17 @@ public class C03_Priority {
     public void youtubeTest() {
         driver.get("https://youtube.com");
     }
+
     @Test(priority = 2)//son olarak bu calisti
     public void amazonTest() {
         driver.get("https://amazon.com");
     }
+
     @Test(priority = -1)//priority degeri en kucuk bu method oldugu icin ilk olarak bu method calisir
     public void facebookTest() {
         driver.get("https://facebook.com");
     }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();

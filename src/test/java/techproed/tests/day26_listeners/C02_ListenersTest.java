@@ -6,8 +6,8 @@ import org.testng.SkipException;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners(techproed.utilities.Listeners.class)
-public class C01_ListenersTest {
+
+public class C02_ListenersTest {
 
     @Test
     public void test01() {

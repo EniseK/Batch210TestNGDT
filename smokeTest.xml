@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Batch210">
+
+    <test name="Smoke Test">
+        <packages>
+            <package name="techproed.tests.day20_Annotations"></package>
+            <package name="techproed.tests.day21_softAssertion_pom"></package>
+        </packages>
+    </test>
+</suite>
+
+        <!--yorum icin ctrl /-->
+        <!--right click, Run-->

@@ -1,0 +1,48 @@
+Listener dersi hakkinda notlar:
+----------------------------------------------------------------------------------------------------
+Listener olusturmak icin "Listeners" adinda bir Class aciyoruz ve:
+A- ITestListener interface'ine implemets yapiyoruz
+B- Ihtiyac duydugumuz @Override methodlari olusturuyoruz
+   a- onStart==> Tum testlerden once tek bir kere cagirilir
+   b- onFinish==> Tum testlerden sonra tek bir kere cagirilir
+   c- onTestStart==> her bir @Test ten once bir kere cagirilir
+   d- onTestSuccess==> sadece pass olan testlerden sonra bir kere cagirilir
+   e- onTestFailure==> sadece fail olan testlerden sonra bir kere cagirilir
+   f- onTestSkipped==> sadece atlanan testlerden sonra bir kere cagirilir
+   Hata alan testlerin tekrar calismasini isteyecek olursak "IRetryAnalyzer" ve "IAnnotationTransformer"
+   interfacelerini de implements yapariz ve iki @Override method daha ekleriz
+   g- retry     --> Hata almasi durumunda calismasini ve kac defa calismasi gerektigini belirtiyoruz
+   h- transform --> retry methodunun .xml file uzerinden kullanilmasini saglar.
+   Aciklama:
+   a,b,c,d,e ve f siklarindaki methodlari kullanabilmek icin iki yontem var:
+   1- Test class'i icinde "@Listeners" annotation'i icinde "Listeners" Class'inin yolunu gostermek
+   2- ".xml" dosyasinda "listeners" tag'i icinde "Listeners" Class'inin yolunu gostermek
+   "retry" methodunu kullanmak icin 2 yontem:
+   1- test methodunun @Test annotation'i icine "retry" methodunun oldugu "Listeners" Class'in yolunu
+      gosteririz.(Bknz: C03_Listenerstest/test01 ve test02) Test Class'indan veya ".xml" file'dan calistirdigimizda
+      "retry" methodu kullanilabilir duruma gelir.
+   2- "transform" methodunun faydasi ise ".xml" dosyasi uzerinden testleri calistirdigimizda, test methodlarina
+      "retry" methodunun yolu gostermeye gerek duymayiz. Herhangi bir test methodu "fail" olursa "rertry" methodu
+      devreye girer
+    -------------------------------------------------------------------------------------------------
+    Senaryo 1: Test Class + Listeners Class kullanma
+    C01_ListenerTest Class'ina "@Listeners" annatation'i ile "Listeners" Class'inin yerini gosterdik
+    4 adet method olusturduk bu methodlardan basit bir sekilde pass, fail, skip ve exception aldik
+    Ve bu durumlarda "Listeners" Class'indaki methodlarin calismasini gozlemledik
+    -------------------------------------------------------------------------------------------------
+    Senaryo 2: XML + Test Class + Listeners Class kullanma
+    C02_ListenerTest Class'i olusturduk ve icinde 4 adet method olusturduk.
+    Bu Class'a sag click / Create TestNG XML /  dedik ve xml file olusturduk
+    Projeye sag click / reload from disk / dedik ve xml file'i gorduk (bknz: xml_ile_listener.xml)
+    Acilan xml file'a, "listeners" tag'i yardimiyla "Listeners" classs'in yolunu gosterdik.
+    xml'e sag click/ run dedigimizde calimasini gozlemledik
+    Ayni xml dosyasinda, rapor alabilmek icin "run configuration" yaptik
+    sag click/ more run debug / modify run configuration /Listeners/+/search "emailablereporter2"/apply/OK
+    Bundan sonra calistiridigimizda proje altinda test-output package'i acildi.
+    Icindeki ".html" doyasina sag click / open in / browser / diyerek acabiliriz
+    ------------------------------------------------------------------------------------------------------
+    Senaryo 3: Test Class + Listeners Class kullanma
+    C03_ListenersTest Class'ina @Listeners annotation'i ile "Listeners" yolunu gosterdik
+    Iki adet basit method olusturduk ve testlere, hata almasi durumunda tekrar calismasi icin "retryAnalyzer"
+    ifadesi ekledik. Ve calismasini gozlemledik
+    --------------------------------------------------------------------------------------------------------

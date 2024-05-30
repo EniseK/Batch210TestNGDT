@@ -12,10 +12,9 @@ public class C02_BeforeGroupAfterGroup {
     WebDriver driver;
 
 
-
     @BeforeGroups("chrome")
-    public void ChromeSetUp(){
-        driver=new ChromeDriver();
+    public void ChromeSetUp() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
@@ -23,8 +22,8 @@ public class C02_BeforeGroupAfterGroup {
     }
 
     @BeforeGroups("edge")
-    public void edgeSetUp(){
-        driver=new EdgeDriver();
+    public void edgeSetUp() {
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 

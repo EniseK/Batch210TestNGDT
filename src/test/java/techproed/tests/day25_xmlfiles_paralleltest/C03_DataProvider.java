@@ -1,4 +1,4 @@
-package techproed.tests.day24_dataprovider_xmlfiles;
+package techproed.tests.day25_xmlfiles_paralleltest;
 
 import org.openqa.selenium.Keys;
 import org.testng.annotations.DataProvider;
@@ -7,8 +7,8 @@ import techproed.pages.BlueRentalPage;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 
-public class C02_DataProvider {
-    @DataProvider
+public class C03_DataProvider {
+    @DataProvider(parallel = true)
     public static Object[][] credentials() {
         return new Object[][]{
                 {"ayhancan@bluerentalcars.com", "ayhan"},
@@ -44,7 +44,7 @@ public class C02_DataProvider {
         blueRentalPage.email.sendKeys(email);
         blueRentalPage.password.sendKeys(password, Keys.ENTER);
 
-
+Driver.closeDriver();
     }
 
 

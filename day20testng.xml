@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="test ng xml plug-in">
+        <classes>
+            <class name="techproed.tests.day24_dataprovider_xmlfiles.C01_DataProvider">
+                <methods>
+                    <include name="test01"/>
+                    <include name="test02"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

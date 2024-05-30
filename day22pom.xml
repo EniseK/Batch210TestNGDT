@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/enise/IdeaProjects/Batch210TestNGDT/src/test/java/techproed/tests/day22_pom">
+        <classes>
+            <class name="techproed.tests.day22_pom.C01_PageKullanimi">
+                <methods>
+                    <include name="test01"/>
+                    <include name="testPractice"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day22_pom.C02_PageKullanimi">
+                <methods>
+                    <include name="test01"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day22_pom.C03_PropertiesTest">
+                <methods>
+                    <include name="test01"/>
+                    <include name="test02"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day22_pom.C04_ClassWork">
+                <methods>
+                    <include name="test01"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day22_pom.C05_ClassWork">
+                <methods>
+                    <include name="test01"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

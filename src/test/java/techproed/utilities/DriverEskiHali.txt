@@ -1,0 +1,66 @@
+package techproed.utilities;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+
+import java.time.Duration;
+
+public class Driver {
+
+    private Driver() {
+
+    }
+
+    /*
+    Driver i her cagirdigimizda yeni bir penecer acmamasi icin if blocku ile ayarlama yaptik
+     if(driver==null) ile driver eger bos ise yani deger atanmamis ise driveri baslat dedik
+     driver acik iken deger atanmis olacagi icin bu blocak akitve olmayacak dolayisiyla mevcut driveri return edecek
+     böylece ayni driver uzerinden test senaryolarimiza devam edebileceğiz
+     Tekli kullanim icin default constructor i private yaptik
+     */
+
+    static WebDriver driver;
+
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            switch (ConfigReader.getProperty("browser")) {
+                case "chrome":
+                    driver = new ChromeDriver();
+                    break;
+
+                case "edge":
+
+                    driver = new EdgeDriver();
+                    break;
+
+                case "safari":
+                    driver = new SafariDriver();
+                    break;
+
+                case "firefox":
+                    driver = new FirefoxDriver();
+                    break;
+
+                default:
+                    driver = new ChromeDriver();
+            }
+
+
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+        }
+        return driver;
+    }
+
+    public static void closeDriver() {
+        if (driver != null) {
+            driver.close();
+            driver = null;
+        }
+
+    }
+}

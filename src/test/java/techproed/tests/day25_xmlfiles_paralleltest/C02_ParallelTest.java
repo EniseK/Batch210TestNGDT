@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 
-public class C01_ParallelTest {
+public class C02_ParallelTest {
 
     @Test
     public void test01() {

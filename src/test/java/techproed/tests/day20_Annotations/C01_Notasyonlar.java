@@ -5,41 +5,46 @@ import org.testng.annotations.*;
 public class C01_Notasyonlar {
 
     @BeforeSuite
-    public void beforeSuite(){
+    public void beforeSuite() {
         System.out.println("Herseyden once beforeSuite notasyonuna sahip method 1 kez calisir.");
     }
 
     @AfterSuite
-    public void afterSuite(){
+    public void afterSuite() {
         System.out.println("Herseyden sonra 1 kez calisir");
     }
 
     @BeforeTest
-    public void beforeTest(){
+    public void beforeTest() {
         System.out.println("Testlerden once beforeTest notasyonuna sahip method 1 kez calisir");
     }
 
     @AfterTest
-    public void afterTest(){
+    public void afterTest() {
         System.out.println("Testlerden sonra afterTest notasyonuna sahip method 1 kez calisir");
     }
 
     @BeforeClass
-    public void beforeClass(){
+    public void beforeClass() {
         System.out.println("Her class'tan once beforeClass notasyonuna sahip method 1 kez calisir");
     }
 
     @AfterClass
-    public void afterClass(){
+    public void afterClass() {
         System.out.println("Her class'tan sonra beforeClass notasyonuna sahip method 1 kez calisir");
     }
 
     @BeforeMethod
-    public void beforeMethod(){
-
+    public void beforeMethod() {
+        System.out.println("BeforeMethod notasyonuna sahip method her test methodundan önce 1 kez calisir");
     }
 
-    @Test
+    @AfterMethod
+    public void afterMethod() {
+        System.out.println("AfterMethod notasyonuna sahip method her test methodundan sonra 1 kez calisir");
+    }
+
+    @Test(groups = "smoke")
     public void test01() {
         System.out.println("Test 01 calisti");
     }

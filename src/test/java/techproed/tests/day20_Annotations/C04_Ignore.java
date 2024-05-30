@@ -15,7 +15,7 @@ public class C04_Ignore {
 
     @BeforeMethod
     public void setUp() {
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
@@ -24,10 +24,10 @@ public class C04_Ignore {
     public void youtubeTest() {
 
         driver.get("https://youtube.com");
-        boolean excelDosyaYolu=false;
-        if(excelDosyaYolu){
+        boolean excelDosyaYolu = false;
+        if (excelDosyaYolu) {
             System.out.println("Testler calisir");
-        }else {
+        } else {
             throw new SkipException("Excel dosya baglantisinda problem olustu dosya bulunamadi");
 
         }
@@ -38,13 +38,14 @@ public class C04_Ignore {
     }
 
 
-    @Test  @Ignore
+    @Test
+    @Ignore
     public void amazonTest() {
         driver.get("https://amazon.com");
     }
 
 
-    @Test (enabled = false )
+    @Test(enabled = false)
     public void facebookTest() {
         driver.get("https://facebook.com");
     }
@@ -54,8 +55,6 @@ public class C04_Ignore {
     public void tearDown() {
         driver.quit();
     }
-
-
 
 
 }
